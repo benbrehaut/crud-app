@@ -1,26 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route } from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import HomePage from './routes/HomePage'
+import Login from './routes/Login';
+import Dashboard from './routes/Dashboard';
+import UserRoute from './routes/UserRoute'
+import GuestRoute from './routes/GuestRoute'
+
+const App = ({ location }) => <>
+  {/* <Route path="/" exact component={HomePage} /> */}
+  <GuestRoute location={location} path="/" exact component={Login} />
+  <UserRoute location={location} path="/dashboard" exact component={Dashboard} />
+</>
 
 export default App;
