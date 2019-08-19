@@ -1,0 +1,12 @@
+@import '../../Static/scss/settings/variables';
+@import '../../Static/scss/settings/unit';
+
+.c-login-form {
+  &__actions {
+    margin-top: rem-calc(5);
+  }
+
+  &__action {
+    margin-right: rem-calc(20);
+  }
+}

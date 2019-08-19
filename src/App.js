@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router-dom'
 
+import './Static/scss/app.scss'
+
 import Login from './routes/Login';
 import Register from './routes/Register';
 import Dashboard from './routes/Dashboard';

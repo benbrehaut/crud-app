@@ -4,7 +4,10 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import { resetPasswordRequest } from './../actions/auth'
+
 import ForgotPasswordForm from '../components/ForgotPasswordForm';
+import Card from '../components/Card';
+import Logo from '../components/Global/Logo';
 
 class ForgottenPassword extends Component {
   state = {
@@ -21,11 +24,14 @@ class ForgottenPassword extends Component {
     const { success } = this.state;
     return(
       <>
-        {success ? ( 
-            'Email has been sent' 
-          ) : (
-            <ForgotPasswordForm submit={this.submit} /> 
+        <Logo />
+        <Card>
+          {success ? ( 
+              'Email has been sent' 
+            ) : (
+              <ForgotPasswordForm submit={this.submit} /> 
           )}
+        </Card>
       </>
     )
   }

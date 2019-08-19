@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import { validateToken, resetPassword } from './../actions/auth'
 
 import Alert from './../components/Alert'
+import Card from '../components/Card';
+import Logo from '../components/Global/Logo';
 import ResetPasswordForm from './../components/ResetPasswordForm'
 
 class ResetPassword extends Component {
@@ -30,19 +32,23 @@ class ResetPassword extends Component {
     const token = this.props.match.params.token
     return(
       <>
-        { loading && (
-          <p>loading</p>
-        )}
+        <Logo />
 
-        { !loading && success && (
-          <>
-            <ResetPasswordForm submit={this.submit} token={token} />
-          </>
-        )}
+        <Card>
+          { loading && (
+            <p>loading</p>
+          )}
 
-        { !loading && !success && (
-          <Alert text="Sorry, but there appears to be an error. Please contact us." />
-        )} 
+          { !loading && success && (
+            <>
+              <ResetPasswordForm submit={this.submit} token={token} />
+            </>
+          )}
+
+          { !loading && !success && (
+            <Alert text="Sorry, but there appears to be an error. Please contact us." />
+          )} 
+        </Card>
       </>
     )
   }

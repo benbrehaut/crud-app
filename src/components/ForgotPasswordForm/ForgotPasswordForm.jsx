@@ -5,6 +5,9 @@ import PropTypes from 'prop-types'
 import './ForgotPasswordForm.scss'
 
 import InlineError from '../InlineError/InlineError';
+import Button from './../Button'
+import SubText from '../SubText'
+import InputField from './../InputField'
 
 class ForgotPasswordForm extends Component {
   state = {
@@ -50,21 +53,27 @@ class ForgotPasswordForm extends Component {
       <form onSubmit={this.onSubmit}>
         { !!errors.global && <InlineError text={errors.global} /> }
         <fieldset>
-          <legend>Forgot Password</legend>
-          <label htmlFor="email">Email</label>
-          <input
+
+          <legend>Forgotten Password</legend>
+          <SubText>Enter your email address. We will send you an email with a link to reset your password.</SubText>
+          <InputField
             type="email"
             id="email"
             name="email"
+            labelText="Email Address"
             placeholder="example@example.com"
             value={data.email}
             onChange={this.onChange}
+            errors={errors.email}
           />
-          { errors.email && <InlineError text={errors.email} />}
 
         </fieldset>
+
         { loading && 'Loading...'}
-        <button type="submit">Login</button>
+
+        <Button type="submit" variant="primary" cssClass="c-login-form__action">
+          Get reset link
+        </Button>
       </form>
     )
   }

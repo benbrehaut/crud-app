@@ -1,10 +1,15 @@
 import React, {Component} from 'react'
 import Validator from "validator";
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 import './LoginForm.scss'
 
-import InlineError from '../InlineError/InlineError';
+import Card from './../Card'
+import Button from './../Button'
+import SubText from '../SubText'
+import InputField from './../InputField'
+import InlineError from '../InlineError';
 
 class LoginForm extends Component {
   state = {
@@ -49,36 +54,51 @@ class LoginForm extends Component {
     const { data, errors, loading } = this.state;
 
     return (
-      <form onSubmit={this.onSubmit}>
-        { errors.global && <InlineError text={errors.global} /> }
-        <fieldset>
-          <legend>Login</legend>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="example@example.com"
-            value={data.email}
-            onChange={this.onChange}
-          />
-          { errors.email && <InlineError text={errors.email} />}
+      <>
+        <form onSubmit={this.onSubmit} className="c-login-form">
+          { errors.global && <InlineError text={errors.global} /> }
+          <fieldset>
+            <legend>Login</legend>
+            <SubText>Please login to your account.</SubText>
 
-          <label htmlFor="password">Password</label>
-          <input 
-            id="password" 
-            type="password" 
-            name="password"
-            placeholder="Your password"
-            value={data.password}
-            onChange={this.onChange}
-          />
-          { errors.password && <InlineError text={errors.password} />}
+            <InputField
+              type="email"
+              id="email"
+              name="email"
+              labelText="Email Address"
+              placeholder="example@example.com"
+              value={data.email}
+              onChange={this.onChange}
+              errors={errors.email}
+            />
 
-        </fieldset>
-        { loading && 'Loading...'}
-        <button type="submit">Login</button>
-      </form>
+            <InputField 
+              id="password" 
+              type="password" 
+              name="password"
+              labelText="Password"
+              placeholder="Your password"
+              value={data.password}
+              onChange={this.onChange}
+              errors={errors.password}
+            />
+
+          </fieldset>
+          { loading && 'Loading...'}
+
+          <div>
+            <Link to="/forgot-password" className="c-login-form__action">Forgotten Password?</Link>
+          </div>
+          <div className="c-login-form__actions">
+            <Button type="submit" variant="primary" cssClass="c-login-form__action">
+              Login
+            </Button>
+            <Button url="/register" variant="secondary" cssClass="c-login-form__action">
+              Register
+            </Button>
+          </div>
+        </form>
+      </>
     )
   }
 }

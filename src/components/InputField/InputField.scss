@@ -1,0 +1,28 @@
+@import '../../Static/scss/settings/variables';
+@import '../../Static/scss/settings/unit';
+
+.o-input-field {
+  color: $palette-primary;
+  margin-bottom: rem-calc(20);
+
+  &__label {
+    font-weight: bold;
+    color: $palette-secondary;
+  }
+
+  &__field {
+    color: $palette-primary;
+
+    &:focus {
+      border-left: 4px solid $palette-primary;
+    }
+
+    &::placeholder {
+      color: lighten($palette-quaternary, 30);
+    }
+
+    &.has-error {
+      border-color: $palette-error;
+    }
+  }
+}

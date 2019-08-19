@@ -1,0 +1,15 @@
+@import '../../../Static/scss/settings/variables';
+@import '../../../Static/scss/settings/unit';
+
+.o-logo {
+  color: $palette-primary;
+  font-size: rem-calc(44);
+  font-weight: bold;
+  text-align: center;
+  margin: rem-calc(30 0);
+
+  a {
+    color: currentColor;
+    text-decoration: none;
+  }
+}

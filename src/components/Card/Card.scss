@@ -1,0 +1,11 @@
+@import '../../Static/scss/settings/variables';
+@import '../../Static/scss/settings/unit';
+
+.o-card {
+  background-color: #FFF;
+  padding: rem-calc(40);
+  box-shadow: $global-box-shadow;
+  max-width: rem-calc(700);
+  width: 100%;
+  margin: auto;
+}

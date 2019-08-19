@@ -4,6 +4,9 @@ import PropTypes from 'prop-types'
 
 import './RegisterForm.scss'
 
+import Button from './../Button'
+import SubText from '../SubText'
+import InputField from './../InputField'
 import InlineError from '../InlineError/InlineError';
 
 class RegisterForm extends Component {
@@ -53,31 +56,35 @@ class RegisterForm extends Component {
         { errors.global && <InlineError text={errors.global} /> }
         <fieldset>
           <legend>Register</legend>
-          <label htmlFor="email">Email</label>
-          <input
+          <SubText>Please enter your details below to create an account.</SubText>
+
+          <InputField
             type="email"
             id="email"
             name="email"
+            labelText="Email Address"
             placeholder="example@example.com"
             value={data.email}
             onChange={this.onChange}
+            errors={errors.email}
           />
-          { errors.email && <InlineError text={errors.email} />}
 
-          <label htmlFor="password">Password</label>
-          <input 
+          <InputField 
             id="password" 
             type="password" 
             name="password"
+            labelText="Password"
             placeholder="Your password"
             value={data.password}
             onChange={this.onChange}
+            errors={errors.password}
           />
-          { errors.password && <InlineError text={errors.password} />}
 
         </fieldset>
         { loading && 'Loading...'}
-        <button type="submit">Login</button>
+        <Button type="submit" variant="primary" cssClass="c-login-form__action">
+          Register
+        </Button>
       </form>
     )
   }

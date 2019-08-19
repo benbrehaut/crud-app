@@ -1,3 +1,3 @@
-import LoginForm from './InlineError'
+import InlineError from './InlineError'
 
 export default InlineError;

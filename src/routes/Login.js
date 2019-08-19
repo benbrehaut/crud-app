@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 
 import { login } from './../actions/auth'
 import LoginForm from '../components/LoginForm';
+import Card from '../components/Card';
+import Logo from '../components/Global/Logo';
 
 class Login extends Component {
   submit = data => this.props.login(data).then(() => this.props.history.push('/dashboard'))
@@ -12,10 +14,11 @@ class Login extends Component {
   render() {
     return(
       <>
-        <h1>Login</h1>
-        <p>Have't got an account? <Link to="/register">Register today</Link></p>
+        <Logo />
     
-        <LoginForm submit={this.submit} />
+        <Card>
+          <LoginForm submit={this.submit} />
+        </Card>
       </>
     )
   }
